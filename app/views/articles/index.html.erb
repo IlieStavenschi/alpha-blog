@@ -1,6 +1,8 @@
 <h1>Articles listing page</h1>
 
+<!-- This section of the code defines a table to display a list of articles -->
 <table>
+  <!-- This section defines the table header, which includes column labels -->
   <thead>
     <tr>
       <th>Title</th>
@@ -9,13 +11,19 @@
     </tr>
   </thead>
 
+  <!-- This section defines the table body, which includes the actual article data -->
   <tbody>
+    <!-- This line of code uses an iterator to loop through each article in the @articles variable -->
     <% @articles.each do |article| %>
     <tr>
+      <!-- This line of code displays the title of the current article in a table cell -->
       <td><%= article.title %></td>
+      <!-- This line of code displays the description of the current article in a table cell -->
       <td><%= article.description %></td>
+      <!-- This line of code creates a placeholder table cell for the "actions" column -->
       <td>Placeholder</td>
     </tr>
+    <!-- This line of code ends the iterator loop -->
     <% end %>
   </tbody>
 </table>
