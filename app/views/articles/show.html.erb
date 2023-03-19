@@ -12,3 +12,9 @@
   which is stored in the @article instance variable.
 -->
 <p><strong>Description: </strong><%= @article.description %></p>
+
+<%= form_with(model: @article, method: :delete, local: true) do |f| %>
+  <button><%= link_to 'Edit', edit_article_path(@article) %></button>
+  <%= f.submit "Delete" %>
+  <button><%= link_to 'All articles', articles_path %></button>
+<% end %>

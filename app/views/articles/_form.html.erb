@@ -1,0 +1,37 @@
+<% if @article.errors.any? %>
+  <h2>The following errors prevented the article from being saved</h2>
+  <ul>
+    <% @article.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+  </ul>
+<% end %>
+<!-- 
+  This line creates a form using Rails' form_with helper method.
+  The form is set to submit to the articles_path URL using the HTTP POST method.
+  data: { turbo: false } is used to allow re-rendering the same page instead of redirecting
+ -->
+<%= form_with(model: @article, local: true, data: { turbo: false }) do |f| %>
+
+<!--
+  This section of code creates a label and text input field for the title attribute of the article model.
+  The input is bound to the f.text_field method, which associates the input with the form object. -->
+<p>
+  <%= f.label :title %><br />
+  <%= f.text_field :title %>
+</p>
+
+<!--
+  This section of code creates a label and text area input field for the description attribute 
+  of the article model. The input is bound to the f.text_area method,
+  which associates the input with the form object. -->
+<p>
+  <%= f.label :description %><br />
+  <%= f.text_area :description %>
+</p>
+
+<!-- This line creates a submit button that will submit the form data to the server when clicked. -->
+<%= f.submit %>
+
+<!-- This line ends the form block -->
+<% end %>

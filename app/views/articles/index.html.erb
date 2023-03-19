@@ -21,9 +21,15 @@
       <!-- This line of code displays the description of the current article in a table cell -->
       <td><%= article.description %></td>
       <!-- This line of code creates a placeholder table cell for the "actions" column -->
-      <td>Placeholder</td>
+      <td>
+          <button><%= link_to 'Edit', edit_article_path(article) %></button>
+          <button><%= link_to 'Show', article_path(article) %></button>
+          <div style="display: inline-block;"><%= button_to "Delete", article_path(article), method: :delete, data: { confirm: "Are you sure?" } %></div>
+      </td>
     </tr>
     <!-- This line of code ends the iterator loop -->
     <% end %>
   </tbody>
 </table>
+
+<button><%= link_to 'Create article', new_article_path %></button>
