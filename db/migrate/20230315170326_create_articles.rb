@@ -16,3 +16,8 @@ class CreateArticles < ActiveRecord::Migration[7.0]
     end
   end
 end
+
+
+# Since we now have a db component to our application with the articles table,
+# we will need to run migrations in production so the production articles table is created.
+# To run migrations at heroku, you can use the following command: heroku run rails db:migrate
